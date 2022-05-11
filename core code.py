@@ -69,12 +69,12 @@ while running:
     random.shuffle(drawn_cards)
     random.shuffle(new_cards)
     if user["drop_count"] == 0:
-        current_card = random.randomint(1,30)
+        current_card = random.randint(1,30)
         if current_card in drawn_cards:
             user["drop_count"] += 1
             user["repository"][current_card] += 1
     elif user["drop_count"] == 1:
-        choice = random.randomint(1,10)
+        choice = random.randint(1,10)
         if choice <= 4:
             current_card = new_cards[0]
             user["repository"][current_card] += 1
