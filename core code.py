@@ -1,8 +1,8 @@
 import random
-empty_respirtory = {}
+empty_repository = {}
 for i in range(1,31):
-    empty_respirtory[i] = 0
-user_list =[{"username":"root","password":"123456","drop_count":0,"respirtory":{}}]
+    empty_repository[i] = 0
+user_list =[{"username":"root","password":"123456","drop_count":0,"repository":{}}]
 running = True
 while running:
     choice = str(input("Welcome! Enter R to register, L to login, E to exit\n"))
@@ -39,7 +39,7 @@ while running:
         new_user["username"] = username
         new_user["password"] = password
         new_user["drop_count"] = 0
-        new_user["respirtory"] = empty_respirtory
+        new_user["repository"] = empty_repository
         user_list.append(new_user)
         continue
     elif choice == "L":
@@ -62,7 +62,7 @@ while running:
     drawn_cards = []
     new_cards = []
     for i in range(1,31):
-        if user["respirtory"][i] == 0:
+        if user["repository"][i] == 0:
             new_cards.append(i)
         else:
             drawn_cards.append(i)
@@ -72,24 +72,19 @@ while running:
         current_card = random.randomint(1,30)
         if current_card in drawn_cards:
             user["drop_count"] += 1
-            user["respirtory"][current_card] += 1
+            user["repository"][current_card] += 1
     elif user["drop_count"] == 1:
         choice = random.randomint(1,10)
         if choice <= 4:
             current_card = new_cards[0]
-            user["respirtory"][current_card] += 1
+            user["repository"][current_card] += 1
             user["drop_count"] = 0
         else:
             current_card = drawn_cards[0]
-            user["respirtory"][current_card] += 1
+            user["repository"][current_card] += 1
             user["drop_count"] += 1
     elif user["drop_count"] == 2:
         current_card = new_cards[0]
-        user["respirtory"][current_card] += 1
+        user["repository"][current_card] += 1
         user["drop_count"] = 0
-
-
-
-
-
 
